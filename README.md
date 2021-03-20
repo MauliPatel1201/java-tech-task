@@ -1,3 +1,12 @@
+## Assumptions
+
+I have updated lunch-data.sql
+
+Please find below url to access the API
+- http://localhost:8080/lunch?date=2020-01-01
+- http://localhost:8080/getRecipe?title=Hotdog
+
+
 # Lunch Microservice
 
 The service provides an endpoint that will determine, from a set of recipes, what I can have for lunch at a given date, based on my fridge ingredient's expiry date, so that I can quickly decide what I’ll be having to eat, and the ingredients required to prepare the meal.

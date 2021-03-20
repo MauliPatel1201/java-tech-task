@@ -1,15 +1,16 @@
 package com.rezdy.lunch.service.impl;
 
-import com.rezdy.lunch.dao.entities.Recipe;
 import com.rezdy.lunch.service.ILunchService;
+import com.rezdy.lunch.dao.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service

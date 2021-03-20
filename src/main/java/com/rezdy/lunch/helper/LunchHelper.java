@@ -1,7 +1,7 @@
 package com.rezdy.lunch.helper;
 
-import com.rezdy.lunch.dao.entities.Recipe;
 import com.rezdy.lunch.service.ILunchService;
+import com.rezdy.lunch.dao.entities.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
