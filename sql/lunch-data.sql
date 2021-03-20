@@ -1,8 +1,8 @@
 CREATE TABLE ingredient (
+	ingredient_id  int unsigned auto_increment primary key,
     TITLE VARCHAR(256) NOT NULL,
     BEST_BEFORE DATE DEFAULT NULL,
-    USE_BY DATE DEFAULT NULL,
-    PRIMARY KEY (TITLE)
+    USE_BY DATE DEFAULT NULL
 );
 
 INSERT INTO ingredient (TITLE, BEST_BEFORE, USE_BY) VALUES
@@ -27,9 +27,8 @@ INSERT INTO ingredient (TITLE, BEST_BEFORE, USE_BY) VALUES
     ('Milk','2030-12-31','1999-01-01');
 
 CREATE TABLE recipe (
-     TITLE VARCHAR(256) NOT NULL,
-     PRIMARY KEY (TITLE)
-);
+	 recipe_id int unsigned auto_increment primary key,
+     TITLE VARCHAR(256) NOT NULL);
 
 INSERT INTO recipe (title) VALUES
     ('Ham and Cheese Toastie'),
@@ -40,40 +39,41 @@ INSERT INTO recipe (title) VALUES
 ;
 
 CREATE TABLE recipe_ingredient (
-    recipe VARCHAR(256) NOT NULL,
-    ingredient VARCHAR(256) NOT NULL,
-    PRIMARY KEY (recipe, ingredient),
-    CONSTRAINT FK_recipe FOREIGN KEY (recipe) REFERENCES recipe (TITLE),
-    CONSTRAINT FK_ingredient FOREIGN KEY (ingredient) REFERENCES ingredient (TITLE)
+	id int unsigned auto_increment,
+    recipe_id int unsigned NOT NULL,
+    ingredient_id int unsigned  NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_recipe_id FOREIGN KEY (recipe_id) REFERENCES recipe (recipe_id),
+    CONSTRAINT FK_ingredient_id FOREIGN KEY (ingredient_id) REFERENCES ingredient (ingredient_id)
 );
 
-INSERT INTO recipe_ingredient (recipe, ingredient) VALUES
-    ('Ham and Cheese Toastie','Ham'),
-    ('Ham and Cheese Toastie','Cheese'),
-    ('Ham and Cheese Toastie','Bread'),
-    ('Ham and Cheese Toastie','Butter'),
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id) VALUES
+   (1,1),
+    (1,2),
+    (1,3),
+    (1,4),
 
-    ('Fry-up','Bacon'),
-    ('Fry-up','Eggs'),
-    ('Fry-up','Baked Beans'),
-    ('Fry-up','Mushrooms'),
-    ('Fry-up','Sausage'),
-    ('Fry-up','Bread'),
+    (2,5),
+    (2,6),
+    (2,7),
+    (2,8),
+    (2,9),
+    (2,3),
 
-    ('Salad','Lettuce'),
-    ('Salad','Tomato'),
-    ('Salad','Cucumber'),
-    ('Salad','Beetroot'),
-    ('Salad','Salad Dressing'),
+    (3,13),
+    (3,14),
+    (3,15),
+    (3,16),
+    (3,17),
 
-    ('Hotdog','Hotdog Bun'),
-    ('Hotdog','Sausage'),
-    ('Hotdog','Ketchup'),
-    ('Hotdog','Mustard'),
+    (4, 10),
+    (4,9),
+    (4,11),
+    (4,12),
 
-    ('Omelette','Eggs'),
-    ('Omelette','Mushrooms'),
-    ('Omelette','Milk'),
-    ('Omelette','Spinach')
+    (5,6),
+    (5,8),
+    (5,19),
+    (5,18)
 ;
 
